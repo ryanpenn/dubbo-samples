@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd
+               http://code.alibabatech.com/schema/dubbo
+               http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.sample.*.*" />
+
+    <!-- AOP-->
+    <bean id="methodInvokeAop" class="cn.ryanpenn.dubbo.samples.sample.commons.MethodInvokeAop"/>
+    <aop:config>
+        <aop:aspect id="time" ref="methodInvokeAop">
+            <aop:pointcut id="aop" expression="execution(* cn.ryanpenn.dubbo.samples.sample.provider.rest.RestContactServiceImpl.*(..))" />
+            <aop:before method="doBefore" pointcut-ref="aop" />
+        </aop:aspect>
+    </aop:config>
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="rest-service" owner="ryan" organization="ryanpenn.cn"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
+
+    <!-- 用rest协议在8090端口暴露服务 -->
+    <dubbo:protocol name="rest" port="8090" server="tomcat"
+                    accepts="20" threads="20"
+                    contextpath="rest"/>
+
+    <dubbo:reference interface="cn.ryanpenn.dubbo.samples.sample.api.dubbo.ContactService"
+                     id="contactService" check="false"
+                     timeout="5000" />
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.rest.RestContactService" ref="restContactService"/>
+
+    <!-- 和本地bean一样实现服务 -->
+    <bean id="restContactService" class="cn.ryanpenn.dubbo.samples.sample.provider.rest.RestContactServiceImpl"/>
+
+</beans>
