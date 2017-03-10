@@ -18,7 +18,8 @@
     <dubbo:application name="RestService_provider" owner="Ryan" organization="zd"/>
 
     <!-- 具体的实现bean -->
-    <bean id="restService" class="cn.ryanpenn.dubbo.samples.sample.provider.RestServiceImpl"/>
+    <bean id="helloService" class="cn.ryanpenn.dubbo.samples.sample.provider.HelloServiceImpl"/>
+    <bean id="restHelloService" class="cn.ryanpenn.dubbo.samples.sample.provider.RestHelloServiceImpl"/>
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
@@ -27,14 +28,18 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- 用rest协议在8080端口暴露服务 -->
-    <dubbo:protocol name="rest" port="8080"
-                    threads="500" server="tomcat"
-                    accepts="500"
+    <dubbo:protocol name="rest" port="8080" server="tomcat"
+                    threads="500" accepts="500"
                     contextpath="service"/>
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.RestService"
-                   protocol="dubbo,rest"
-                   ref="restService"/>
+    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.HelloService"
+                   protocol="dubbo"
+                   ref="helloService"/>
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.RestHelloService"
+                   protocol="rest"
+                   ref="restHelloService"/>
 
 </beans>

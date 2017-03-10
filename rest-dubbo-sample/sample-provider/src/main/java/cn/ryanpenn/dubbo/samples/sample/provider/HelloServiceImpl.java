@@ -1,6 +1,7 @@
 package cn.ryanpenn.dubbo.samples.sample.provider;
 
-import cn.ryanpenn.dubbo.samples.sample.api.RestService;
+import cn.ryanpenn.dubbo.samples.sample.api.HelloService;
+import cn.ryanpenn.dubbo.samples.sample.api.RestHelloService;
 import cn.ryanpenn.dubbo.samples.sample.api.User;
 
 import java.text.DecimalFormat;
@@ -8,23 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 
-@Path("rest")
-public class RestServiceImpl implements RestService {
+public class HelloServiceImpl implements HelloService, RestHelloService {
 
-    @GET
-    @Path("hello/{name}")
-    @Produces("application/json; charset=utf-8")
     @Override
-    public String sayHello(@PathParam("name") String name) {
+    public String sayHello(String name) {
         System.out.println("sayHello(" + name + ")");
         return "Hello " + name;
     }
 
-    @GET
-    @Path("users")
-    @Produces("application/json; charset=utf-8")
     @Override
     public List<User> getUsers() {
         System.out.println("getUsers()");
@@ -48,11 +41,8 @@ public class RestServiceImpl implements RestService {
         return list;
     }
 
-    @GET
-    @Path("format/{size}")
-    @Produces("application/json; charset=utf-8")
     @Override
-    public String dataSizeFormat(@PathParam("size") long size) {
+    public String dataSizeFormat(long size) {
         DecimalFormat formater = new DecimalFormat("####.00");
         if (size < 1024L) {
             return size + "bytes";

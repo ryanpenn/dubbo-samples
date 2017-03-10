@@ -1,18 +1,9 @@
 package cn.ryanpenn.dubbo.samples.sample.provider;
 
-import cn.ryanpenn.dubbo.samples.sample.api.RestService;
+import cn.ryanpenn.dubbo.samples.sample.api.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ServiceProvider {
-
-    static void printMemory(RestService restService) {
-        long maxM = Runtime.getRuntime().maxMemory();
-        long totalM = Runtime.getRuntime().totalMemory();
-        long freeM = Runtime.getRuntime().freeMemory();
-        System.out.println("maxMemory=" + restService.dataSizeFormat(maxM)
-                + ", totalMemory=" + restService.dataSizeFormat(totalM)
-                + ", freeMemory=" + restService.dataSizeFormat(freeM));
-    }
 
     // 响应时间优先的并发收集器
     // java -Xmx2000m -Xms2000m -Xmn2g -Xss512k -XX:+UseG1GC \
@@ -21,9 +12,12 @@ public class ServiceProvider {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml"});
         context.start();
 
-        RestService restService = (RestService) context.getBean("restService");
-        printMemory(restService);
+        HelloService helloService = (HelloService) context.getBean("helloService");
         System.out.println("Provider start...");
+
+        System.out.println("maxMemory=" + helloService.dataSizeFormat(Runtime.getRuntime().maxMemory())
+                + ", totalMemory=" + helloService.dataSizeFormat(Runtime.getRuntime().totalMemory())
+                + ", freeMemory=" + helloService.dataSizeFormat(Runtime.getRuntime().freeMemory()));
 
         System.in.read();
     }

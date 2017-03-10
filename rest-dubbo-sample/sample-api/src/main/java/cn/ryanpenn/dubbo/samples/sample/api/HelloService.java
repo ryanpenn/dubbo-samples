@@ -3,9 +3,9 @@ package cn.ryanpenn.dubbo.samples.sample.api;
 import java.util.List;
 
 /**
- * RestService
+ * HelloService
  */
-public interface RestService {
+public interface HelloService {
     String sayHello(String name);
 
     List<User> getUsers();

@@ -14,7 +14,10 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
 
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
-    <dubbo:reference id="restService" interface="cn.ryanpenn.dubbo.samples.sample.api.RestService"
+    <dubbo:reference id="helloService" interface="cn.ryanpenn.dubbo.samples.sample.api.HelloService"
                      protocol="dubbo"/>
+
+    <dubbo:reference id="restHelloService" interface="cn.ryanpenn.dubbo.samples.sample.api.RestHelloService"
+                     protocol="rest"/>
 
 </beans>
