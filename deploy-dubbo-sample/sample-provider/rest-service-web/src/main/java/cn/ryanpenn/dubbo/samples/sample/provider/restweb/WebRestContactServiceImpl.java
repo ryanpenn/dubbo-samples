@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * RestContactServiceImpl
+ * WebRestContactServiceImpl
  */
-public class RestContactServiceImpl implements RestContactService {
+public class WebRestContactServiceImpl implements RestContactService {
 
     @Autowired
     ContactService contactService;

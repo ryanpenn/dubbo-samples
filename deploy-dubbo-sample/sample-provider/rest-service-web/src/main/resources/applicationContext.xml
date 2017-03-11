@@ -5,8 +5,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                http://www.springframework.org/schema/beans/spring-beans.xsd
-
-
                http://code.alibabatech.com/schema/dubbo
                http://code.alibabatech.com/schema/dubbo/dubbo.xsd
                http://www.springframework.org/schema/context
@@ -21,19 +19,17 @@
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
 
-    <!-- 用rest协议在外部servlet容器暴露服务 -->
-    <dubbo:protocol name="rest" port="8080" server="servlet"
-                    accepts="20" threads="20"
-                    contextpath="rest"/>
+    <!-- 用rest协议在外部servlet容器暴露服务,将当期项目设置为tomcat默认站点 -->
+    <dubbo:protocol name="rest" port="8080" server="servlet"/>
 
     <dubbo:reference interface="cn.ryanpenn.dubbo.samples.sample.api.dubbo.ContactService"
                      id="contactService" check="false"
                      timeout="5000"/>
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.rest.RestContactService" ref="restContactService"/>
+    <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.rest.RestContactService" ref="webRestContactService"/>
 
     <!-- 和本地bean一样实现服务 -->
-    <bean id="restContactService" class="cn.ryanpenn.dubbo.samples.sample.provider.restweb.RestContactServiceImpl"/>
+    <bean id="webRestContactService" class="cn.ryanpenn.dubbo.samples.sample.provider.restweb.WebRestContactServiceImpl"/>
 
 </beans>
