@@ -11,7 +11,22 @@
                http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.sample.consumer.web.*"/>
+    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.sample.consumer.web.viewmodel"/>
+    <!-- 配置freemaker -->
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/view/" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+            </props>
+        </property>
+    </bean>
 
     <!-- 支持注解 -->
     <dubbo:annotation/>
