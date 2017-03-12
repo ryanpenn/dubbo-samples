@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>-->
+
+    <!-- 注解驱动 -->
+    <context:annotation-config/>
+
+    <!-- 自动扫描组建包:注意不要mvc配置冲突 -->
+    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.mvc.sample.model"/>
+
+</beans>
