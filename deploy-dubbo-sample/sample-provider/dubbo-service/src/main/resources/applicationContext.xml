@@ -27,7 +27,7 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="dubbo" port="20880" serialization="kryo"/>
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="cn.ryanpenn.dubbo.samples.sample.api.dubbo.ContactService" ref="contactService"/>
