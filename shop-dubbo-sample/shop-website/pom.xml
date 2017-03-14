@@ -12,5 +12,12 @@
     <artifactId>shop-website</artifactId>
     <packaging>war</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.ryanpenn.dubbo.samples</groupId>
+            <artifactId>shop-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
