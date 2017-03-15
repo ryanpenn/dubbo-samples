@@ -2,10 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.ryanpenn.dubbo.samples.shop.service.user.persist.repository">
+<mapper namespace="cn.ryanpenn.dubbo.samples.shop.service.user.persist.repository.UserRepository">
 
-    <select id="selectByLogin" parameterType="string" resultType="cn.ryanpenn.dubbo.samples.shop.service.user.persist.entity.UserEntity">
-        select id, login_name, password, nickname, email, last_login_time, register_date from `tb_user` where login_name = #{login}
+    <select id="selectByLogin" parameterType="String" resultType="cn.ryanpenn.dubbo.samples.shop.service.user.persist.entity.UserEntity">
+        select id, login_name, password, nickname, email, last_login_time, register_date from `tb_user` where login_name = #{login} and password=#{password}
     </select>
+
+    <insert id="insertAndGetId" parameterType="UserEntity">
+        <!-- mysql插入数据后，获取id -->
+        <selectKey keyProperty="id" resultType="int" order="AFTER" >
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+
+        INSERT INTO `tb_user`(login_name, password, nickname, email) VALUES(
+        #{loginName,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{nickname,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}
+        )
+    </insert>
 
 </mapper>

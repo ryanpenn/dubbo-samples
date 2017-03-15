@@ -39,4 +39,11 @@ public interface UserService {
      * @return
      */
     boolean isLogin(int userId);
+
+    /**
+     * 判断用户是否存在
+     * @param loginName
+     * @return
+     */
+    boolean isExist(String loginName);
 }

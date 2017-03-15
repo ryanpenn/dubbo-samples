@@ -11,15 +11,15 @@
                http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.shop.service.user.*.*"/>
+    <context:component-scan base-package="cn.ryanpenn.dubbo.samples.shop.app"/>
+
+    <!-- 支持注解 -->
+    <dubbo:annotation/>
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="user-service" owner="ryan" organization="ryanpenn.cn"/>
+    <dubbo:application name="shop-app" owner="ryan" organization="ryanpenn.cn"/>
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
-
-    <!-- 通过注解发布服务 -->
-    <dubbo:annotation package="cn.ryanpenn.dubbo.samples.shop.service.user.service" />
 
 </beans>
