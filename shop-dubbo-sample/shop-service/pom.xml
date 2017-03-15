@@ -13,11 +13,18 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>shop-api</module>
         <module>user-service</module>
         <module>order-service</module>
         <module>product-service</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.ryanpenn.dubbo.samples</groupId>
+            <artifactId>shop-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

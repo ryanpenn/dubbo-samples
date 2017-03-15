@@ -1,7 +1,5 @@
 package cn.ryanpenn.dubbo.samples.shop.service.api.user;
 
-import java.util.List;
-
 /**
  * UserService
  */

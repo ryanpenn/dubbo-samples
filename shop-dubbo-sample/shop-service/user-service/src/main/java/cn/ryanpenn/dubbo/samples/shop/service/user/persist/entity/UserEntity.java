@@ -1,21 +1,28 @@
-package cn.ryanpenn.dubbo.samples.shop.service.user.po;
+package cn.ryanpenn.dubbo.samples.shop.service.user.persist.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * UserPo.
+ * UserEntity.
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserPo {
-    private int id;
+@Table(name = "tb_user")
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String loginName;
     private String password;
     private String nickname;

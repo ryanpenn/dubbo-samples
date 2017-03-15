@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ryanpenn.dubbo.samples.shop.service.user.persist.repository">
+
+    <select id="selectByLogin" parameterType="string" resultType="cn.ryanpenn.dubbo.samples.shop.service.user.persist.entity.UserEntity">
+        select id, login_name, password, nickname, email, last_login_time, register_date from `tb_user` where login_name = #{login}
+    </select>
+
+</mapper>

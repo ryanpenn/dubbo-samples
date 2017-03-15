@@ -12,5 +12,7 @@
     <artifactId>product-service</artifactId>
     <packaging>jar</packaging>
 
+    <!-- dubbo+springboot -->
+    <!--http://blog.csdn.net/hong0220/article/details/51072872-->
 
 </project>

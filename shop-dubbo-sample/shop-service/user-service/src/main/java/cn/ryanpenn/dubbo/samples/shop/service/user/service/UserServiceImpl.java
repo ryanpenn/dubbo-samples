@@ -2,11 +2,13 @@ package cn.ryanpenn.dubbo.samples.shop.service.user.service;
 
 import cn.ryanpenn.dubbo.samples.shop.service.api.user.UserInfo;
 import cn.ryanpenn.dubbo.samples.shop.service.api.user.UserService;
-import org.springframework.stereotype.Service;
+import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * UserServiceImpl
  */
+@Component
 @Service
 public class UserServiceImpl implements UserService {
     @Override

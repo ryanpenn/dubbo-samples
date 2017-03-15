@@ -19,8 +19,7 @@
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
 
-    <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.ryanpenn.dubbo.samples.shop.service.api.user.UserService"
-                   ref="userServiceImpl"/>
+    <!-- 通过注解发布服务 -->
+    <dubbo:annotation package="cn.ryanpenn.dubbo.samples.shop.service.user.service" />
 
 </beans>

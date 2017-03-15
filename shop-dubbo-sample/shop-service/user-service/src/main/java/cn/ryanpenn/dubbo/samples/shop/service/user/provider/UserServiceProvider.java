@@ -13,7 +13,7 @@ public class UserServiceProvider {
     public static void main(String[] args) throws IOException {
 
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContaxt.xml");
+                new ClassPathXmlApplicationContext("applicationContext.xml");
 
         System.out.println("UserServiceProvider start...");
         System.in.read();
