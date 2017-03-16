@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,5 +20,8 @@ public class OrderInfo implements Serializable {
     private int id;
     private int status;
     private int buyerId;
+    private Date orderTime;
+    private String receiver;
+    private double amount;
     private List<Integer> productIdList;
 }

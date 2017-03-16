@@ -6,3 +6,16 @@
 - mvn clean package -pl shop-service/pom.xml -am
 - mvn clean package -pl shop-web/pom.xml -am
 - mvn clean package -pl shop-service/shop-api/pom.xml -amd
+
+### IDEA插件
+- [Mybatis Plugin破解](https://github.com/myoss/profile)
+- Lombok plugin
+- Markdown support
+- CheckStyle
+- FindBugs
+- Maven Helper
+- .ignore
+- GsonFormat
+
+### 文档
+- [mybatis3](http://www.mybatis.org/mybatis-3/zh/index.html)

@@ -1,0 +1,28 @@
+mybatis:
+  mapperLocations: classpath*:persist/mapper/*.xml
+#  typeAliasesPackage: cn.ryanpenn.dubbo.samples.shop.service.product.provider.persist.entity
+
+# SpringBoot集成MyBatis,分页插件PageHelper,通用Mapper
+# https://github.com/abel533/MyBatis-Spring-Boot
+
+mapper:
+    mappers:
+        - tk.mybatis.mapper.common.Mapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    rowBoundsWithCount: true
+    offsetAsPageNum: true
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/db_shop?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 12345

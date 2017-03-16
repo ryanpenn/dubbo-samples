@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan(basePackages = {"cn.ryanpenn.dubbo.samples.shop.website"}, excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class)})
-@ImportResource({"classpath:applicationContext.xml"})
+@ImportResource({"classpath:dubbo-context.xml"})
 public class RootConfig {
 
 }

@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  * 用户表操作
- * <p>
+ *
  * UserRepository
  * extends Mapper 自动实现常见的CRUD操作
  */
@@ -27,7 +27,7 @@ public interface UserRepository extends Mapper<UserEntity> {
     @Select("SELECT * FROM tb_user WHERE id = #{id}")
     @Results({
             @Result(property = "createTime", column = "create_time", javaType = Date.class),
-            @Result(property = "displayName", column = "display_name")
+            @Result(property = "loginName", column = "login_name")
     })
     UserEntity getOne(Integer id);
 
