@@ -25,6 +25,13 @@
 - mvn clean package -pl shop-web/pom.xml -am
 - mvn clean package -pl shop-service/shop-api/pom.xml -amd
 
+### run
+1. 先启动Zookeeper本地集群
+2. 启动服务提供者（参考deploy-dubbo-sample）
+3. 启动服务消费者
+4. 启动dubbo监控服务，dubbokeeper-server
+5. 启动dubbo管理后台，dubbokeeper-ui
+
 ### IDEA插件
 - [Mybatis Plugin破解](https://github.com/myoss/profile)
 - Lombok plugin
