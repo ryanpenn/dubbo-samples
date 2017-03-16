@@ -1,3 +1,21 @@
+### 项目说明
+- 服务接口
+  - shop-api 服务接口（普通java接口，单独打包jar）
+  
+- 服务提供者
+  - shop-service
+    - user-service 用户服务（基于spring4.2.4实现）
+    - product-service 商品服务（[基于springboot1.3.2与mybatis集成](http://blog.csdn.net/catoop/article/details/50684676)）
+    - order-service 订单服务（基于springboot1.4.3与mybatis集成）
+
+- 服务消费者
+  - shop-app 普通jar程序（基于spring实现）
+  - shop-website 普通web程序（基于springmvc实现-[零配置](http://hanqunfeng.iteye.com/blog/2113820)）
+
+- 依赖关系
+  - 服务提供者 -----> 服务接口
+  - 服务消费者 -----> 服务接口
+
 ### install:
 - mvn install:install-file  -Dfile=../lib/dubbo-2.8.5-SNAPSHOT.jar  -DgroupId=com.alibaba  -DartifactId=dubbo -Dversion=2.8.5-SNAPSHOT -Dpackaging=jar
 - mvn install:install-file  -Dfile=../lib/zkclient-0.8.1-SNAPSHOT.jar  -DgroupId=com.alibaba  -DartifactId=zkclient -Dversion=0.8.1-SNAPSHOT -Dpackaging=jar
@@ -19,8 +37,3 @@
 
 ### 文档
 - [mybatis3](http://www.mybatis.org/mybatis-3/zh/index.html)
-
-
-### 项目说明
-- product-service
-  > [低版本springboot与mybatis集成](http://blog.csdn.net/catoop/article/details/50684676)
