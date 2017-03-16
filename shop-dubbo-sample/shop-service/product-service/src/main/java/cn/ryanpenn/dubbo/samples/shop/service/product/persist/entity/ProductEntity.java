@@ -24,9 +24,9 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private double price;
+    private Double price;
     private Date productionDate;
     private String factory;
-    private int stock;
+    private Integer stock;
     private Date creationDate;
 }

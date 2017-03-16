@@ -23,11 +23,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public ViewResolver viewResolver() {
         FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
         resolver.setViewClass(org.springframework.web.servlet.view.freemarker.FreeMarkerView.class);
-        resolver.setCache(true);
+        resolver.setCache(true); // 开发时可以关闭缓存
         resolver.setContentType("text/html; charset=utf-8");
-        resolver.setViewNames(".ftl");
+        //resolver.setViewNames("ftl/*");
         //resolver.setPrefix("");
-        //resolver.setSuffix("");
+        resolver.setSuffix(".ftl");
         resolver.setOrder(0);
         return resolver;
     }

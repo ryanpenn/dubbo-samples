@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ryanpenn.dubbo.samples.shop.service.product.persist.repository.ProductRepository">
+
+    <select id="searchByName" parameterType="String" resultType="cn.ryanpenn.dubbo.samples.shop.service.product.persist.entity.ProductEntity">
+        select id, name, price, production_date, factory, stock, creation_date from `tb_product` where name = #{name}
+    </select>
+
+</mapper>

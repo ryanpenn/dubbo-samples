@@ -2,10 +2,14 @@ package cn.ryanpenn.dubbo.samples.shop.service.order.service;
 
 import cn.ryanpenn.dubbo.samples.shop.service.api.order.OrderInfo;
 import cn.ryanpenn.dubbo.samples.shop.service.api.order.OrderService;
+import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * OrderServiceImpl
  */
+@Component
+@Service(version = "1.0")
 public class OrderServiceImpl implements OrderService {
     @Override
     public int submit(OrderInfo orderInfo) {

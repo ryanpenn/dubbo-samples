@@ -19,3 +19,8 @@
 
 ### 文档
 - [mybatis3](http://www.mybatis.org/mybatis-3/zh/index.html)
+
+
+### 项目说明
+- product-service
+  > [低版本springboot与mybatis集成](http://blog.csdn.net/catoop/article/details/50684676)
