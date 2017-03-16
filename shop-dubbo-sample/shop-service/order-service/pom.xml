@@ -17,6 +17,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <springboot.version>1.4.3.RELEASE</springboot.version>
+        <!-- 注意: 这里必须指定spring的版本,否则会加载跟项目shop-dubbo-sample中的spring(4.2.4),造成版本冲突,程序启动失败 -->
         <spring.version>4.3.5.RELEASE</spring.version>
     </properties>
 
