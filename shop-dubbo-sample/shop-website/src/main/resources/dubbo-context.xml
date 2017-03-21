@@ -19,4 +19,11 @@
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>
 
+    <!-- 通过XML应用服务 -->
+    <dubbo:reference interface="cn.ryanpenn.dubbo.samples.shop.service.api.order.OrderService"
+                     id="orderService" version="1.0" check="false">
+        <!-- findOrderByUserId 方法为异步调用，其他为同步调用 -->
+        <dubbo:method name="findOrderByUserId" async="true" />
+    </dubbo:reference>
+
 </beans>
