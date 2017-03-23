@@ -15,11 +15,11 @@ import org.springframework.stereotype.Component;
 public class ServiceProvider {
 
     @Getter
-    @Reference(version = "1.0")
+    @Reference(version = "1.0", check = false)
     private UserService userService;
 
     @Getter
-    @Reference(version = "1.0")
+    @Reference(version = "1.0", check = false)
     private ProductService productService;
 
     // 已在 dubbo-context.xml 中引用了该服务

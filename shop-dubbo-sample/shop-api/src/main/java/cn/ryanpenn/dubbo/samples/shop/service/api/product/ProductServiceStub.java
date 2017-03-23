@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * ProductService的本地存根
- * -
+ * - 代理ProductService，自动构建
  *
  * @Ref Dubbo用户手册 http://dubbo.io/User+Guide-zh.htm
  */
@@ -20,6 +20,7 @@ public class ProductServiceStub implements ProductService {
     @Override
     public List<ProductInfo> list() {
         try {
+            System.out.println("ProductServiceStub.list()");
             return productService.list();
         } catch (Exception e) {
             // 处理错误

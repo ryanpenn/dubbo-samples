@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 import java.util.List;
@@ -60,9 +61,10 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
+    @ResponseBody
     public String echo() {
         // 强制转型为EchoService，进行回声测试
-        EchoService echoService = (EchoService) (provider.getProductService());
+        EchoService echoService = (EchoService) (provider.getUserService());
         if (echoService!=null)
             return  (String) echoService.$echo("OK"); // 回声测试可用性
         else
@@ -70,6 +72,7 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/product/list", method = RequestMethod.GET)
+    @ResponseBody
     public List<ProductInfo> product(){
 
         return provider.getProductService().list();
