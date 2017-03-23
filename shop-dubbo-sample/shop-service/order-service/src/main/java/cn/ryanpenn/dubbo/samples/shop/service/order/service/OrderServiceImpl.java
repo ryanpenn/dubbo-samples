@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
  * OrderServiceImpl
  */
 @Component
-@Service(version = "1.0")
+@Service(version = "1.0", mock = "true")
 public class OrderServiceImpl implements OrderService {
 
     @Reference(version = "1.0", async = true)

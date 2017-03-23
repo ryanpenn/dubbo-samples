@@ -13,7 +13,7 @@ import java.util.List;
  * ProductServiceImpl
  */
 @Component
-@Service(version = "1.0")
+@Service(version = "1.0", stub = "true")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
